@@ -1,0 +1,50 @@
+body {
+  background-image: url("Outline-down.png");
+  background-size: cover;
+}
+input,
+textarea {
+  color: #e0e0e0;
+}
+.message {
+  border-left: 1px solid rgb(255, 255, 255);
+}
+.refmessage {
+  border-left: 1px solid rgb(255, 255, 255);
+}
+.nick {
+  color: #ff6fe0;
+}
+.trip {
+  color: #fcfc30;
+}
+.text a {
+  color: #f2f2f2;
+}
+.admin .nick {
+  color: #ffffff;
+}
+.mod .nick {
+  color: #ffffff;
+}
+.me .nick {
+  color: #ffffff;
+}
+.info .nick,
+.info .text {
+  color: #ffffff;
+}
+.warn .nick,
+.warn .text {
+  color: #ffffff;
+}
+#footer {
+  background: #b1afaf;
+}
+#sidebar {
+  background: #b1afaf;
+  border-color: #b1afaf;
+}
+#chatform {
+  border-color: #b1afaf;
+}
