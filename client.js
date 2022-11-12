@@ -93,7 +93,8 @@ md.renderer.rules.image = function (tokens, idx, options) {
 
 md.renderer.rules.link_open = function (tokens, idx, options) {
 	var title = tokens[idx].title ? (' title="' + Remarkable.utils.escapeHtml(Remarkable.utils.replaceEntities(tokens[idx].title)) + '"') : '';
-	var target = options.linkTarget ? (' target="' + options.linkTarget + '"') : '';
+	var target = 
+	options.linkTarget ? (' target="' + options.linkTarget + '"') : '';
 	return '<a rel="noreferrer" onclick="return verifyLink(this)" href="' + Remarkable.utils.escapeHtml(tokens[idx].href) + '"' + title + target + '>';
 };
 
@@ -146,35 +147,24 @@ var frontpage = [
 	"                           |   |_ ||  _| '_| |  _|   |_ ||  _|",
 	"                           |_|_|__/|___|_,_|.|___|_|_|__/|_|  ",
 	"---",
-	"Welcome to hack.chat, a minimal, distraction-free chat application.",
-	"You are now experiencing hack.chat with a tweaked client: hackchat\\+\\+. Official hack.chat client is at: https://hack.chat.",
-	"Channels are created, joined and shared with the url, create your own channel by changing the text after the question mark. Example: https://hack.chat/?your-channel (This is to official hack.chat website)",
-	"There are no channel lists, so a secret channel name can be used for private discussions.",
+	"欢迎来到MyHc，一个小巧的，快速响应的HackChat网站，支持中文和英文，您的语言是中文。您可以在 https://myhc.ml/ 的后方加?xxxx来加入",
+	"您现在正在浏览的是MyHc，全称MyHackChat。源站点是: https://hack.chat.",
+	"MyHc所提供的服务如下：",
+	"HackChat加速：当您访问MyHackChat时，您可以使用它来加速您的频道——无论您在全球的任何地方",
+	"Hcextinction：在MyHackChat中，有许多增添的插件，您可以同步在HackChat使用",
+	"您可以自定义主题，或者获取MyHackChat的更多主题",
 	"---",
-	"Here are some pre-made channels you can join: (with hack.chat\\+\\+!)",
+	"这里有以下您可能访问的频道：",
 	"?your-channel ?programming ?lounge",
 	"?meta ?math ?physics ?chemistry",
 	"?technology ?games ?banana",
 	"?test ?your-channell ?china ?chinese ?kt1j8rpc",
-	"And here's a random one generated just for you: ?" + Math.random().toString(36).substr(2, 8),
+	"这里是为你专门创建的一个频道: ?" + Math.random().toString(36).substr(2, 8),
 	"---",
 	"Formatting:",
 	"Notice: Dont send raw source code without using a code block!",
 	"Surround LaTeX with a dollar sign for inline style $\\zeta(2) = \\pi^2/6$, and two dollars for display. ",
-	"For syntax highlight, wrap the code like: \\`\\`\\`<language> <the code>\\`\\`\\` where <language> is any known programming language.",
-	"---",
-	"Current Github: https://github.com/hack-chat",
-	"Legacy GitHub: https://github.com/AndrewBelt/hack.chat",
-	"---",
-	"Bots, Android clients, desktop clients, browser extensions, docker images, programming libraries, server modules and more:",
-	"https://github.com/hack-chat/3rd-party-software-list",
-	"---",
-	"Server and web client released under the WTFPL and MIT open source license.",
-	"No message history is retained on the hack.chat server, but in certain channels there may be bots made by users which record messages.",
-	"---",
-	"Github of hackchat++ (aka hackchat-client-plus): https://github.com/xjzh123/hackchat-client-plus",
-	"Hosted at https://hcer.netlify.app/ and hc.thz.cool(thanks to Maggie, aka THZ, for hosting).",
-	"Links: [Hack.Chat](https://hack.chat) | [Hack.Chat wiki written in Chinese/中文hack.chat帮助文档](https://hcwiki.github.io) | [History in chatrooms written in Chinese/聊天室历史书](https://hcwiki.github.io/history/) | [TanChat](https://chat.thz.cool) | [Crosst.Chat](https://crosst.chat) (Thanks for providing replying script!)"
+	"For syntax highlight, wrap the code like: \\`\\`\\`<language> <the code>\\`\\`\\` where <language> is any known programming language."
 ].join("\n");
 
 function $(query) {
@@ -370,7 +360,7 @@ function join(channel, oldNick) {
 					// The user cancelled the prompt in some manner
 					shouldConnect = false;
 					shouldAutoReconnect = false;
-					pushMessage({ nick: '!', text: "You cancelled joining. Press enter at the input field to reconnect." })
+					pushMessage({ nick: '!', text: "您的频道已经加入，请重试或者换一个频道。" })
 				}
 			}
 		}
@@ -390,7 +380,7 @@ function join(channel, oldNick) {
 		if (shouldAutoReconnect) {
 			if (wasConnected) {
 				wasConnected = false;
-				pushMessage({ nick: '!', text: "Server disconnected. Attempting to reconnect. . ." });
+				pushMessage({ nick: '!', text: "服务器断开，请重连..." });
 			}
 
 			window.setTimeout(function () {
@@ -454,9 +444,9 @@ var COMMANDS = {
 			userAdd(user.nick,user.trip);
 		});
 
-		pushMessage({ nick: '*', text: "Users online: " + nicks.join(", ").replace(/_/g,'\_') })
+		pushMessage({ nick: '*', text: "在线的用户: " + nicks.join(", ").replace(/_/g,'\_') })
 
-		pushMessage({ nick: '*', text: "Thanks for using hackchat++ client! Source at: https://github.com/xjzh123/hackchat-client-plus" })
+		pushMessage({ nick: '*', text: "感谢您使用MyHackChat！内测版本：https://dev.myhc.ml" })
 
 		if (myColor) {
 			send({ cmd: 'changecolor', color: myColor })
@@ -745,9 +735,9 @@ function updateTitle() {
 
 	var title;
 	if (myChannel) {
-		title = myChannel + " - hack.chat++";
+		title = myChannel + " - MyHackChat";
 	} else {
-		title = "hack.chat++";
+		title = "MyHackChat";
 	}
 
 	if (unread > 0) {
