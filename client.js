@@ -1297,6 +1297,7 @@ function userIgnore(nick) {
 /* color scheme switcher */
 
 var schemes = [
+	'sakura',
 	'android',
 	'android-white',
 	'atelier-dune',
