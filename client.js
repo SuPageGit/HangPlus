@@ -148,6 +148,8 @@ var frontpage = [
 	"                           |_|_|__/|___|_,_|.|___|_|_|__/|_|  ",
 	"---",
 	"欢迎来到MyHc，一个小巧的，快速响应的HackChat网站，支持中文和英文，您的语言是中文。您可以在 https://myhc.ml/ 的后方加?xxxx来加入",
+	"Github源站：https://github.com/xjzh123/hackchat-client-plus;hackchat++：https://hcer.netlify.app/",
+	"本汉化项目Github地址：https://github.com/SuPageGit/HangPlus/",
 	"您现在正在浏览的是MyHc，全称MyHackChat。源站点是: https://hack.chat.",
 	"MyHc所提供的服务如下：",
 	"HackChat加速：当您访问MyHackChat时，您可以使用它来加速您的频道——无论您在全球的任何地方",
